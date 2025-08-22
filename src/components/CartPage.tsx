@@ -206,10 +206,10 @@ export default function CartPage({ cartItems, updateQuantity, removeItem, clearC
                 >
                   <div className="flex flex-col md:flex-row gap-6">
                     {/* Product Image */}
-                    <div className="w-full md:w-32 h-32 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center text-5xl group-hover:scale-110 transition-transform duration-300 relative overflow-hidden">
+                    {/* <div className="w-full md:w-32 h-32 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center text-5xl group-hover:scale-110 transition-transform duration-300 relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-pink-500/10 animate-pulse"></div>
                       <span className="relative z-10">{item.image}</span>
-                    </div>
+                    </div> */}
 
                     {/* Product Info */}
                     <div className="flex-1 space-y-4">
