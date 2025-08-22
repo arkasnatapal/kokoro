@@ -145,12 +145,12 @@ export default function LandingPage() {
           </div>
 
           <div className="hero-subtitle text-xl md:text-2xl text-gray-300 mb-4 font-light font-inter">
-            Your Ultimate Anime Lifestyle Store
+           Handmade with Heart
           </div>
 
           <div className="hero-description text-lg text-gray-400 mb-8 max-w-2xl mx-auto font-inter">
-            Discover the ultimate anime merchandise collection. From exclusive figures to streetwear, 
-            find everything that speaks to your otaku soul.
+            Discover the ultimate collection. From exclusive figures to modern apparel 
+            find everything that speaks to your crazy soul.
           </div>
 
           {/* CTA Buttons */}

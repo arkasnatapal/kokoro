@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Heart, ShoppingCart, Star, Search, Grid, List,  Sparkles,  Gift, Package, Plus, Leaf, PenTool, QrCode } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import keyring1 from "../assets/KeyRing1.png";
@@ -20,12 +20,12 @@ interface CartItem {
 }
 
 interface ProductPageProps {
-  setCurrentPage: (page: string) => void;
+  // setCurrentPage: (page: string) => void;
   addToCart: (product: CartItem, quantity?: number) => void;
 }
 
-export default function ProductPage({ setCurrentPage, addToCart }: ProductPageProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
+export default function ProductPage({ addToCart }: ProductPageProps) {
+  // const containerRef = useRef<HTMLDivElement>(null);
   const [selectedType, setSelectedType] = useState<'gift-box' | 'single' | 'addons'>('single');
   const [selectedCategory, setSelectedCategory] = useState('anime');
   const [selectedBoxType, setSelectedBoxType] = useState('theme-based');
@@ -33,12 +33,12 @@ export default function ProductPage({ setCurrentPage, addToCart }: ProductPagePr
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState('trending');
-  const [addedToCart, setAddedToCart] = useState<number | null>(null);
+  const [addedToCart, setAddedToCart] = useState<number | string | null>(null);
 
   useEffect(() => {
     // Page entrance animation - reset and reapply animations when selectedType changes
     const animateElements = () => {
-      const pageHeader = document.querySelector('.page-header');
+      const pageHeader = document.querySelector('.page-header') as HTMLElement | null;
       const sections = document.querySelectorAll('.section-animate');
       
       // Reset animation classes first
