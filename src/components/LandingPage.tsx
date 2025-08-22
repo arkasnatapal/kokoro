@@ -7,7 +7,7 @@ import logo from '../assets/logo.png';
 export default function LandingPage() {
   const heroRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLDivElement>(null);
-  const featuredRef = useRef<HTMLDivElement>(null);
+  // const featuredRef = useRef<HTMLDivElement>(null);
   const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
   const [subscriptionEmail, setSubscriptionEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -70,12 +70,12 @@ export default function LandingPage() {
     }
   };
 
-  const featuredProducts = [
-    { id: 1, name: 'Cyberpunk Hoodie', price: '$89', category: 'Fashion', rating: 4.9 },
-    { id: 2, name: 'Neon LED Lights', price: '$125', category: 'Home Decor', rating: 4.8 },
-    { id: 3, name: 'Anime Art Book', price: '$32', category: 'Books', rating: 4.7 },
-    { id: 4, name: 'VR Headset', price: '$450', category: 'Tech', rating: 4.9 },
-  ];
+  // const featuredProducts = [
+  //   { id: 1, name: 'Cyberpunk Hoodie', price: '$89', category: 'Fashion', rating: 4.9 },
+  //   { id: 2, name: 'Neon LED Lights', price: '$125', category: 'Home Decor', rating: 4.8 },
+  //   { id: 3, name: 'Anime Art Book', price: '$32', category: 'Books', rating: 4.7 },
+  //   { id: 4, name: 'VR Headset', price: '$450', category: 'Tech', rating: 4.9 },
+  // ];
 
   const creators = [
     {

@@ -18,7 +18,7 @@ interface NavbarProps {
 
 export default function Navbar({ cartItemCount }: NavbarProps) {
   const navRef = useRef<HTMLElement>(null);
-  const logoRef = useRef<HTMLDivElement>(null);
+  const logoRef = useRef<HTMLAnchorElement>(null);
   const userDropdownRef = useRef<HTMLDivElement>(null);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

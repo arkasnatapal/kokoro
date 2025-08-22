@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Heart, ShoppingCart, Star, Filter, Search, Grid, List, Zap, Flame, Sparkles, TrendingUp, Gift, Package, Plus, Leaf, PenTool, QrCode } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Heart, ShoppingCart, Star, Search, Grid, List,  Sparkles,  Gift, Package, Plus, Leaf, PenTool, QrCode } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import keyring1 from "../assets/KeyRing1.png";
 import keyring2 from "../assets/keyring 2.png";

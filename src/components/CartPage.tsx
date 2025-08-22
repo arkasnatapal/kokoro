@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Plus, Minus, Trash2, ShoppingBag, Sparkles, Zap, CreditCard, Tag, Search } from 'lucide-react';
 
