@@ -94,7 +94,7 @@ export default function CartPage({ cartItems, updateQuantity, removeItem, clearC
           
           <div className="hidden md:flex items-center space-x-4">
             <div className="text-center">
-              <div className="text-2xl font-bold text-pink-400 font-orbitron">${total.toFixed(2)}</div>
+              <div className="text-2xl font-bold text-pink-400 font-orbitron">Rs. {total.toFixed(2)}</div>
               <div className="text-sm text-gray-400 font-inter">Total</div>
             </div>
             <ShoppingBag className="w-8 h-8 text-purple-400" />
@@ -119,7 +119,7 @@ export default function CartPage({ cartItems, updateQuantity, removeItem, clearC
 
             <div className="cart-animate flex flex-col items-center space-y-6 mb-12">
               {/* Fun suggestions */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl">
+              {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl">
                 <div className="bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-xl p-4 text-center">
                   <div className="text-2xl mb-2">👘</div>
                   <p className="text-sm text-gray-300 font-inter">Anime Hoodies</p>
@@ -136,7 +136,7 @@ export default function CartPage({ cartItems, updateQuantity, removeItem, clearC
                   <div className="text-2xl mb-2">💍</div>
                   <p className="text-sm text-gray-300 font-inter">Aesthetic Accessories</p>
                 </div>
-              </div>
+              </div> */}
 
               <button
                 onClick={() => navigate('/products')}
@@ -149,7 +149,7 @@ export default function CartPage({ cartItems, updateQuantity, removeItem, clearC
             </div>
 
             {/* Empty cart order summary with $0 values */}
-            <div className="cart-animate max-w-md mx-auto">
+            {/* <div className="cart-animate max-w-md mx-auto">
               <div className="bg-gradient-to-br from-gray-900/80 to-black/90 backdrop-blur-xl rounded-2xl p-6 border border-purple-500/20">
                 <h3 className="text-xl font-bold text-white mb-4 font-orbitron flex items-center space-x-2">
                   <ShoppingBag className="w-5 h-5 text-pink-400" />
@@ -159,20 +159,20 @@ export default function CartPage({ cartItems, updateQuantity, removeItem, clearC
                 <div className="space-y-3 text-gray-400 font-inter">
                   <div className="flex justify-between">
                     <span>Subtotal (0 items)</span>
-                    <span>$0.00</span>
+                    <span>Rs. 0.00</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Shipping</span>
-                    <span>$0.00</span>
+                    <span>Rs. 0.00</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Promo discount</span>
-                    <span>$0.00</span>
+                    <span>Rs. 0.00</span>
                   </div>
                   <div className="border-t border-gray-700 pt-3">
                     <div className="flex justify-between text-xl font-bold text-white font-orbitron">
                       <span>Total</span>
-                      <span>$0.00</span>
+                      <span>Rs. 0.00</span>
                     </div>
                   </div>
                 </div>
@@ -184,7 +184,7 @@ export default function CartPage({ cartItems, updateQuantity, removeItem, clearC
                   </div>
                   <div className="flex items-center space-x-2 text-gray-500">
                     <span className="text-sm">🚚</span>
-                    <span className="text-sm font-inter">Free shipping over $100</span>
+                    <span className="text-sm font-inter">Free shipping over Rs. 100</span>
                   </div>
                   <div className="flex items-center space-x-2 text-gray-500">
                     <span className="text-sm">🎁</span>
@@ -192,7 +192,7 @@ export default function CartPage({ cartItems, updateQuantity, removeItem, clearC
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         ) : (
           <div className="grid lg:grid-cols-3 gap-8">
@@ -248,11 +248,11 @@ export default function CartPage({ cartItems, updateQuantity, removeItem, clearC
                         <div className="space-y-1">
                           <div className="flex items-center space-x-2">
                             <span className="text-2xl font-bold text-transparent bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text font-orbitron">
-                              ${item.price}
+                              Rs. {item.price}
                             </span>
                             {item.originalPrice && (
                               <span className="text-sm text-gray-500 line-through font-inter">
-                                ${item.originalPrice}
+                                Rs. {item.originalPrice}
                               </span>
                             )}
                           </div>
@@ -298,20 +298,20 @@ export default function CartPage({ cartItems, updateQuantity, removeItem, clearC
               <div className="space-y-4 mb-6">
                 <div className="flex justify-between text-gray-300 font-inter">
                   <span>Subtotal ({totalItems} items)</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                  <span>Rs. {subtotal.toFixed(2)}</span>
                 </div>
                 
                 {savings > 0 && (
                   <div className="flex justify-between text-green-400 font-inter">
                     <span>You saved</span>
-                    <span>-${savings.toFixed(2)}</span>
+                    <span>-Rs. {savings.toFixed(2)}</span>
                   </div>
                 )}
 
                 {promoDiscount > 0 && (
                   <div className="flex justify-between text-green-400 font-inter">
                     <span>Promo ({appliedPromo})</span>
-                    <span>-${promoDiscount.toFixed(2)}</span>
+                    <span>-Rs. {promoDiscount.toFixed(2)}</span>
                   </div>
                 )}
 
@@ -323,7 +323,7 @@ export default function CartPage({ cartItems, updateQuantity, removeItem, clearC
                 <div className="border-t border-gray-700 pt-4">
                   <div className="flex justify-between text-xl font-bold text-white font-orbitron">
                     <span>Total</span>
-                    <span>${total.toFixed(2)}</span>
+                    <span>Rs.{total.toFixed(2)}</span>
                   </div>
                 </div>
               </div>
@@ -375,7 +375,7 @@ export default function CartPage({ cartItems, updateQuantity, removeItem, clearC
                 </div>
                 <div className="flex items-center space-x-2 text-blue-400">
                   <span className="text-sm">🚚</span>
-                  <span className="text-sm font-inter">Free shipping over $100</span>
+                  <span className="text-sm font-inter">Free shipping over Rs. 100</span>
                 </div>
                 <div className="flex items-center space-x-2 text-yellow-400">
                   <span className="text-sm">🎁</span>
@@ -394,10 +394,10 @@ export default function CartPage({ cartItems, updateQuantity, removeItem, clearC
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { name: 'Anime Sticker Pack', price: '$15', image: '🌸' },
-                { name: 'LED Strip Lights', price: '$45', image: '💡' },
-                { name: 'Kawaii Keychain', price: '$12', image: '🔑' },
-                { name: 'Gaming Mouse Pad', price: '$25', image: '🖱️' }
+                { name: 'Anime Sticker Pack', price: 'Rs. 15', image: '🌸' },
+                { name: 'LED Strip Lights', price: 'Rs. 45', image: '💡' },
+                { name: 'Kawaii Keychain', price: 'Rs. 12', image: '🔑' },
+                { name: 'Gaming Mouse Pad', price: 'Rs. 25', image: '🖱️' }
               ].map((product, index) => (
                 <div
                   key={index}

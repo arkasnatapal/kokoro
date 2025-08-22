@@ -1,5 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Heart, ShoppingCart, Star, Filter, Search, Grid, List, Zap, Flame, Sparkles, TrendingUp, Gift, Package, Plus, Leaf, PenTool, QrCode } from 'lucide-react';
+import { ImageWithFallback } from './figma/ImageWithFallback';
+import keyring1 from "../assets/KeyRing1.png";
+import keyring2 from "../assets/keyring 2.png";
+import diary from "../assets/diary.png";
+import stickers1 from "../assets/Stickers.png";
+import stickers2 from "../assets/Stickers2.png";
 
 interface CartItem {
   id: number;
@@ -85,118 +91,96 @@ export default function ProductPage({ setCurrentPage, addToCart }: ProductPagePr
     { id: 'collectibles', name: 'Rare', icon: '🏆', emoji: '💫' },
   ];
 
+  // Product image URLs from Unsplash
+  const productImages: { [key: number]: string } = {
+  1:keyring1,
+  2:keyring2,
+  3:diary,
+  4:stickers1,
+  5:stickers2,
+
+  
+  };
+
+  // Gift box and addon image URLs
+  const giftBoxImages: { [key: string]: string } = {
+    'gb-1': 'https://images.unsplash.com/photo-1631086658688-b3d3cdc46e86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqYXBhbmVzZSUyMGthd2FpaSUyMHBsdXNoaWV8ZW58MXx8fHwxNzU1ODU3MjEzfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    'gb-2': 'https://images.unsplash.com/photo-1471445421505-d3bbc35affb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqYXBhbmVzZSUyMGdpZnQlMjBib3h8ZW58MXx8fHwxNzU1ODU3MjE5fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    'gb-3': 'https://images.unsplash.com/photo-1631086658688-b3d3cdc46e86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqYXBhbmVzZSUyMGthd2FpaSUyMHBsdXNoaWV8ZW58MXx8fHwxNzU1ODU3MjEzfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    'ap-1': 'https://images.unsplash.com/photo-1471445421505-d3bbc35affb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqYXBhbmVzZSUyMGdpZnQlMjBib3h8ZW58MXx8fHwxNzU1ODU3MjE5fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    'ap-2': 'https://images.unsplash.com/photo-1669720974831-47816c252ff1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob2xvZ3JhcGhpYyUyMHN0aWNrZXJzfGVufDF8fHx8MTc1NTg1NzIxNHww&ixlib=rb-4.1.0&q=80&w=1080',
+  };
+
   const products = [
     {
       id: 1,
-      name: 'Cyberpunk Neon Hoodie',
-      description: 'That main character energy 💅',
-      price: 89,
-      originalPrice: 129,
+      name: 'MultiUsage Keychain',
+      description: 'Sleek, durable, and versatile keychain for all your keys 🔑',
+      price: 40,
+      originalPrice: 100,
       category: 'apparel',
       rating: 4.9,
       reviews: 234,
-      image: '👘',
+      image: productImages[1],
       tags: ['Limited', 'Fire', 'New Drop'],
       colors: ['black', 'pink', 'purple'],
-      vibes: ['aesthetic', 'cyberpunk', 'cozy']
+      vibes: ['aesthetic', 'goth', 'cozy']
     },
     {
       id: 2,
-      name: 'RGB Gaming Setup Kit',
-      description: 'Your setup bout to be BUSSIN ✨',
-      price: 154,
+      name: 'Keychain 2.0',
+      description: 'Stylish keychain with a touch of nostalgia 💖',
+      price: 40,
       originalPrice: null,
       category: 'tech',
       rating: 4.8,
       reviews: 89,
-      image: '💡',
-      tags: ['Popular', 'Gaming'],
+      image: productImages[2],
+      tags: ['Popular', 'Trendy'],
       colors: ['multicolor'],
       vibes: ['gaming', 'rgb', 'epic']
     },
     {
       id: 3,
-      name: 'Anime Art Collection Vol.1',
-      description: 'Gorgeous prints that hit different 📚',
-      price: 32,
-      originalPrice: 45,
+      name: 'Gothic Diary',
+      description: 'Write your deepest thoughts in style 📖',
+      price: 250,
+      originalPrice: 360,
       category: 'collectibles',
       rating: 4.7,
       reviews: 156,
-      image: '🎨',
+      image: productImages[3],
       tags: ['Sale', 'Art'],
-      colors: ['default'],
+      colors: ['default', 'black', 'purple'],
       vibes: ['aesthetic', 'art', 'vintage']
     },
     {
       id: 4,
-      name: 'VR Headset Pro Max',
-      description: 'Touch grass in the metaverse 🥽',
-      price: 450,
+      name: 'Classic Stickers Pack',
+      description: 'Over 9+ unique stickers for all your needs 🌟',
+      price: 100,
       originalPrice: null,
       category: 'tech',
       rating: 4.9,
       reviews: 67,
-      image: '🥽',
+      image: productImages[4],
       tags: ['Premium', 'VR'],
       colors: ['white', 'black'],
       vibes: ['futuristic', 'immersive', 'premium']
     },
     {
       id: 5,
-      name: 'Holographic Choker Set',
+      name: 'Vintae Stickers Pack',
       description: 'Serving looks 24/7 no cap 💎',
-      price: 28,
-      originalPrice: 35,
+      price: 100,
+      originalPrice: 120,
       category: 'accessories',
       rating: 4.6,
       reviews: 203,
-      image: '💍',
+      image: productImages[5],
       tags: ['Trending', 'Cute'],
       colors: ['pink', 'blue', 'green', 'rainbow'],
       vibes: ['kawaii', 'sparkly', 'trendy']
-    },
-    {
-      id: 6,
-      name: 'Mecha Figure Limited Edition',
-      description: 'Absolutely legendary piece fr 🤖',
-      price: 189,
-      originalPrice: null,
-      category: 'figures',
-      rating: 5.0,
-      reviews: 45,
-      image: '🤖',
-      tags: ['Limited', 'Sold Out Soon'],
-      colors: ['default'],
-      vibes: ['legendary', 'collectible', 'rare']
-    },
-    {
-      id: 7,
-      name: 'Kawaii Cat Ear Headphones',
-      description: 'Uwu energy with crisp audio 🎧',
-      price: 79,
-      originalPrice: 99,
-      category: 'tech',
-      rating: 4.8,
-      reviews: 312,
-      image: '🎧',
-      tags: ['Kawaii', 'Audio'],
-      colors: ['pink', 'white', 'black'],
-      vibes: ['kawaii', 'audio', 'cute']
-    },
-    {
-      id: 8,
-      name: 'Aesthetic Phone Case Set',
-      description: 'Protect your phone with style ✨',
-      price: 25,
-      originalPrice: 40,
-      category: 'accessories',
-      rating: 4.5,
-      reviews: 189,
-      image: '📱',
-      tags: ['Bundle', 'Aesthetic'],
-      colors: ['pastel', 'dark', 'gradient'],
-      vibes: ['aesthetic', 'protective', 'stylish']
     }
   ];
 
@@ -275,7 +259,7 @@ export default function ProductPage({ setCurrentPage, addToCart }: ProductPagePr
       description: 'Make it extra special ✨',
       price: 12,
       originalPrice: 18,
-      image: '🎀',
+      image: giftBoxImages['ap-1'],
       category: 'addon',
       rating: 4.8,
       reviews: 124,
@@ -289,7 +273,7 @@ export default function ProductPage({ setCurrentPage, addToCart }: ProductPagePr
       description: 'Over 100 kawaii stickers 💫',
       price: 18,
       originalPrice: null,
-      image: '🌟',
+      image: giftBoxImages['ap-2'],
       category: 'addon',
       rating: 4.9,
       reviews: 89,
@@ -316,7 +300,7 @@ export default function ProductPage({ setCurrentPage, addToCart }: ProductPagePr
       originalPrice: 120,
       items: ['Kawaii Stickers Pack', 'Anime Art Print', 'Chibi Keychain', 'Aesthetic Phone Case'],
       theme: selectedCategory,
-      image: '🎁',
+      image: giftBoxImages['gb-1'],
       rating: 4.9,
       reviews: 156
     },
@@ -328,7 +312,7 @@ export default function ProductPage({ setCurrentPage, addToCart }: ProductPagePr
       originalPrice: 200,
       items: ['Limited Figure', 'Manga Volume', 'Themed Apparel', 'Collectible Card Set', 'Premium Poster'],
       theme: selectedCategory,
-      image: '📦',
+      image: giftBoxImages['gb-2'],
       rating: 5.0,
       reviews: 89
     },
@@ -340,7 +324,7 @@ export default function ProductPage({ setCurrentPage, addToCart }: ProductPagePr
       originalPrice: 85,
       items: ['Soft Plushie', 'Cozy Socks', 'Cute Mug', 'Mini Pillow'],
       theme: selectedCategory,
-      image: '🧸',
+      image: giftBoxImages['gb-3'],
       rating: 4.8,
       reviews: 203
     }
@@ -479,9 +463,13 @@ export default function ProductPage({ setCurrentPage, addToCart }: ProductPagePr
                     className="group bg-gradient-to-br from-gray-900/80 to-black/90 backdrop-blur-xl rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 overflow-hidden p-6"
                   >
                     {/* Box Image */}
-                    <div className="aspect-square mb-4 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-300 relative overflow-hidden">
+                    <div className="aspect-square mb-4 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-pink-500/10 animate-pulse"></div>
-                      <span className="relative z-10">{box.image}</span>
+                      <ImageWithFallback
+                        src={box.image}
+                        alt={box.name}
+                        className="w-full h-full object-cover rounded-xl relative z-10"
+                      />
                       
                       {/* Theme Badge */}
                       <div className="absolute top-2 left-2 z-20">
@@ -528,7 +516,7 @@ export default function ProductPage({ setCurrentPage, addToCart }: ProductPagePr
                       <div className="space-y-1">
                         <div className="flex items-center space-x-2">
                           <span className="text-2xl font-bold text-transparent bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text font-orbitron">
-                            ${box.price}
+                            Rs. {box.price}
                           </span>
                           {box.originalPrice && (
                             <span className="text-sm text-gray-500 line-through font-inter">
@@ -643,229 +631,40 @@ export default function ProductPage({ setCurrentPage, addToCart }: ProductPagePr
             </div>
 
             {/* Products Grid */}
-            <div className={`section-animate grid gap-6 ${
-              viewMode === 'grid' 
-                ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' 
-                : 'grid-cols-1'
-            }`}>
-              {sortedProducts.map((product, index) => (
-                <div
-                  key={product.id}
-                  className={`group bg-gradient-to-br from-gray-900/80 to-black/90 backdrop-blur-xl rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 overflow-hidden ${
-                    viewMode === 'list' ? 'flex flex-row items-center p-4' : 'p-6'
-                  }`}
-                >
-                  {/* Product Image */}
-                  <div className={`${
-                    viewMode === 'list' ? 'w-24 h-24 mr-6' : 'aspect-square mb-4'
-                  } bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center text-4xl group-hover:scale-110 transition-transform duration-300 relative overflow-hidden`}>
-                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-pink-500/10 animate-pulse"></div>
-                    <span className="relative z-10">{product.image}</span>
-                    
-                    {/* Tags */}
-                    <div className="absolute top-2 left-2 z-20">
-                      {product.tags.slice(0, 2).map((tag, tagIndex) => (
-                        <span
-                          key={tagIndex}
-                          className={`inline-block px-2 py-1 text-xs rounded-full mr-1 mb-1 font-bold font-inter ${
-                            tag === 'Limited' ? 'bg-red-500 text-white animate-pulse' :
-                            tag === 'Fire' || tag === 'New Drop' ? 'bg-gradient-to-r from-yellow-500 to-red-500 text-white' :
-                            tag === 'Popular' ? 'bg-gradient-to-r from-green-500 to-blue-500 text-white' :
-                            tag === 'Sale' ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white animate-pulse' :
-                            tag === 'Trending' ? 'bg-gradient-to-r from-cyan-500 to-purple-500 text-white animate-pulse' :
-                            'bg-gradient-to-r from-pink-500 to-purple-500 text-white'
-                          }`}
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Wishlist Button */}
-                    <button className="absolute top-2 right-2 p-1.5 bg-black/50 hover:bg-pink-500/50 rounded-lg transition-all duration-300 opacity-0 group-hover:opacity-100 z-20">
-                      <Heart className="w-4 h-4 text-white" />
-                    </button>
-                  </div>
-
-                  <div className={`${viewMode === 'list' ? 'flex-1' : ''}`}>
-                    {/* Product Info */}
-                    <div className="space-y-3 mb-4">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs text-purple-400 uppercase tracking-wide font-inter font-bold">
-                          {oldCategories.find(c => c.id === product.category)?.name}
-                        </span>
-                        <div className="flex items-center space-x-1">
-                          <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                          <span className="text-xs text-white font-inter font-bold">{product.rating}</span>
-                          <span className="text-xs text-gray-400 font-inter">({product.reviews})</span>
-                        </div>
-                      </div>
-                      
-                      <h4 className="text-white font-bold group-hover:text-purple-400 transition-colors font-orbitron">
-                        {product.name}
-                      </h4>
-                      <p className="text-sm text-gray-300 font-inter">{product.description}</p>
-                      
-                      {/* Vibes Tags */}
-                      <div className="flex flex-wrap gap-1">
-                        {product.vibes.slice(0, 3).map((vibe, vibeIndex) => (
-                          <span
-                            key={vibeIndex}
-                            className={`px-2 py-1 text-xs rounded-full font-inter font-medium ${getVibeColor(vibe)}`}
-                          >
-                            #{vibe}
-                          </span>
-                        ))}
-                      </div>
-                      
-                      {/* Color Options */}
-                      {product.colors.length > 1 && (
-                        <div className="flex space-x-2">
-                          {product.colors.map((color, colorIndex) => (
-                            <div
-                              key={colorIndex}
-                              className={`w-5 h-5 rounded-full border-2 border-gray-500 hover:border-white transition-colors cursor-pointer ${
-                                color === 'black' ? 'bg-black' :
-                                color === 'white' ? 'bg-white' :
-                                color === 'pink' ? 'bg-pink-500' :
-                                color === 'purple' ? 'bg-purple-500' :
-                                color === 'blue' ? 'bg-blue-500' :
-                                color === 'green' ? 'bg-green-500' :
-                                color === 'multicolor' || color === 'rainbow' ? 'bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500' :
-                                color === 'pastel' ? 'bg-gradient-to-r from-pink-200 to-purple-200' :
-                                color === 'dark' ? 'bg-gray-800' :
-                                color === 'gradient' ? 'bg-gradient-to-r from-yellow-400 to-pink-400' :
-                                'bg-gradient-to-r from-pink-500 to-purple-500'
-                              }`}
-                            />
-                          ))}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Price and Actions */}
-                    <div className="flex items-center justify-between">
-                      <div className="space-y-1">
-                        <div className="flex items-center space-x-2">
-                          <span className="text-2xl font-bold text-transparent bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text font-orbitron">
-                            ${product.price}
-                          </span>
-                          {product.originalPrice && (
-                            <span className="text-sm text-gray-500 line-through font-inter">
-                              ${product.originalPrice}
-                            </span>
-                          )}
-                        </div>
-                        {product.originalPrice && (
-                          <div className="text-xs text-green-400 font-inter font-bold">
-                            {Math.round((1 - product.price / product.originalPrice) * 100)}% OFF 🔥
-                          </div>
-                        )}
-                      </div>
-                      
-                      <div className="flex space-x-2">
-                        <button 
-                          onClick={() => handleAddToCart(product)}
-                          className={`px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 flex items-center space-x-2 group font-inter ${
-                            addedToCart === product.id 
-                              ? 'bg-green-500 text-white' 
-                              : 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 hover:from-purple-500 hover:to-pink-500'
-                          }`}
-                        >
-                          {addedToCart === product.id ? (
-                            <>
-                              <span className="text-sm font-bold">Added!</span>
-                              <span className="text-white">✓</span>
-                            </>
-                          ) : (
-                            <>
-                              <ShoppingCart className="w-4 h-4 group-hover:animate-bounce" />
-                              <span className="text-sm font-bold">Add to Cart</span>
-                            </>
-                          )}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Load More Button */}
-            {/* {sortedProducts.length > 0 && (
-              <div className="section-animate text-center mt-12">
-                <button className="px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 rounded-full text-white font-bold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 flex items-center space-x-3 mx-auto font-inter group">
-                  <span>Load More Fire 🔥</span>
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin group-hover:animate-pulse" />
-                </button>
-              </div>
-            )} */}
-
-            {/* No Results State */}
-            {sortedProducts.length === 0 && (
-              <div className="section-animate text-center py-16">
-                <div className="text-6xl mb-4">😔</div>
-                <h3 className="text-2xl font-bold text-white mb-2 font-orbitron">No vibes found</h3>
-                <p className="text-gray-400 font-inter">Try adjusting your search or filters to find that perfect item</p>
-              </div>
-            )}
-          </>
-        )}
-
-        {/* Add-ons Section */}
-        {selectedType === 'addons' && (
-          <>
-            <div className="section-animate mb-12">
-              <h2 className="text-2xl font-bold text-white mb-6 font-orbitron text-center">Add Special Touches</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {addons.map((addon) => (
-                  <div
-                    key={addon.id}
-                    className={`p-6 rounded-2xl border transition-all duration-300 hover:scale-105 cursor-pointer ${
-                      selectedAddons.includes(addon.id)
-                        ? 'bg-gradient-to-br from-green-500/20 to-blue-500/20 border-green-500'
-                        : 'bg-gray-900/50 border-gray-700 hover:border-gray-500'
-                    }`}
-                    onClick={() => toggleAddon(addon.id)}
-                  >
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="text-purple-400">{addon.icon}</div>
-                      <span className="text-lg font-bold text-white font-orbitron">${addon.price}</span>
-                    </div>
-                    <h3 className="text-lg font-bold text-white mb-2 font-orbitron">{addon.name}</h3>
-                    <p className="text-gray-300 text-sm font-inter">{addon.description}</p>
-                    {selectedAddons.includes(addon.id) && (
-                      <div className="mt-4 flex items-center text-green-400">
-                        <span className="text-sm font-bold font-inter">✓ Added</span>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Additional Addon Products */}
-            <div className="section-animate mb-12">
-              <h2 className="text-2xl font-bold text-white mb-6 font-orbitron text-center">Premium Add-on Products</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {addonProducts.map((product) => (
+            <div className="section-animate">
+              <div className={`${
+                viewMode === 'grid' 
+                  ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6' 
+                  : 'space-y-4'
+              }`}>
+                {sortedProducts.map((product) => (
                   <div
                     key={product.id}
-                    className="group bg-gradient-to-br from-gray-900/80 to-black/90 backdrop-blur-xl rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 overflow-hidden p-6"
+                    className={`group bg-gradient-to-br from-gray-900/80 to-black/90 backdrop-blur-xl rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 overflow-hidden ${
+                      viewMode === 'list' ? 'flex items-center p-4' : 'p-6'
+                    }`}
                   >
                     {/* Product Image */}
-                    <div className="aspect-square mb-4 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-300 relative overflow-hidden">
+                    <div className={`${
+                      viewMode === 'list' ? 'w-24 h-24 mr-6' : 'aspect-square mb-4'
+                    } bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 relative overflow-hidden`}>
                       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-pink-500/10 animate-pulse"></div>
-                      <span className="relative z-10">{product.image}</span>
+                      <ImageWithFallback
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-full object-cover rounded-xl relative z-10"
+                      />
                       
                       {/* Tags */}
                       <div className="absolute top-2 left-2 z-20">
-                        {product.tags.map((tag, tagIndex) => (
+                        {product.tags.slice(0, 2).map((tag, tagIndex) => (
                           <span
                             key={tagIndex}
                             className={`inline-block px-2 py-1 text-xs rounded-full mr-1 mb-1 font-bold font-inter ${
                               tag === 'Limited' ? 'bg-red-500 text-white animate-pulse' :
+                              tag === 'Fire' || tag === 'New Drop' ? 'bg-gradient-to-r from-yellow-500 to-red-500 text-white' :
                               tag === 'Popular' ? 'bg-gradient-to-r from-green-500 to-blue-500 text-white' :
+                              tag === 'Sale' ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white animate-pulse' :
                               tag === 'Trending' ? 'bg-gradient-to-r from-cyan-500 to-purple-500 text-white animate-pulse' :
                               'bg-gradient-to-r from-pink-500 to-purple-500 text-white'
                             }`}
@@ -882,10 +681,12 @@ export default function ProductPage({ setCurrentPage, addToCart }: ProductPagePr
                     </div>
 
                     {/* Product Info */}
-                    <div className="space-y-3 mb-4">
+                    <div className={`space-y-3 ${viewMode === 'list' ? 'flex-1' : 'mb-4'}`}>
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-purple-400 uppercase tracking-wide font-inter font-bold">
-                          ADD-ON
+                        <span className={`text-xs text-purple-400 uppercase tracking-wide font-inter font-bold ${
+                          viewMode === 'list' ? 'hidden' : ''
+                        }`}>
+                          {oldCategories.find(c => c.id === product.category)?.name}
                         </span>
                         <div className="flex items-center space-x-1">
                           <Star className="w-4 h-4 text-yellow-400 fill-current" />
@@ -894,52 +695,44 @@ export default function ProductPage({ setCurrentPage, addToCart }: ProductPagePr
                         </div>
                       </div>
                       
-                      <h4 className="text-white font-bold group-hover:text-purple-400 transition-colors font-orbitron">
+                      <h4 className={`text-white font-bold group-hover:text-purple-400 transition-colors font-orbitron ${
+                        viewMode === 'list' ? 'text-lg' : ''
+                      }`}>
                         {product.name}
                       </h4>
-                      <p className="text-sm text-gray-300 font-inter">{product.description}</p>
+                      <p className={`text-sm text-gray-300 font-inter ${
+                        viewMode === 'list' ? 'hidden' : ''
+                      }`}>
+                        {product.description}
+                      </p>
                       
                       {/* Vibes Tags */}
-                      <div className="flex flex-wrap gap-1">
-                        {product.vibes.map((vibe, vibeIndex) => (
+                      <div className={`flex flex-wrap gap-2 ${viewMode === 'list' ? 'hidden' : ''}`}>
+                        {product.vibes.slice(0, 3).map((vibe, index) => (
                           <span
-                            key={vibeIndex}
-                            className={`px-2 py-1 text-xs rounded-full font-inter font-medium ${getVibeColor(vibe)}`}
+                            key={index}
+                            className={`px-2 py-1 text-xs rounded-full font-inter ${getVibeColor(vibe)}`}
                           >
-                            #{vibe}
+                            {vibe}
                           </span>
                         ))}
                       </div>
-                      
-                      {/* Color Options */}
-                      {product.colors.length > 1 && (
-                        <div className="flex space-x-2">
-                          {product.colors.map((color, colorIndex) => (
-                            <div
-                              key={colorIndex}
-                              className={`w-5 h-5 rounded-full border-2 border-gray-500 hover:border-white transition-colors cursor-pointer ${
-                                color === 'pink' ? 'bg-pink-500' :
-                                color === 'purple' ? 'bg-purple-500' :
-                                color === 'gold' ? 'bg-yellow-500' :
-                                color === 'multicolor' ? 'bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500' :
-                                'bg-gradient-to-r from-pink-500 to-purple-500'
-                              }`}
-                            />
-                          ))}
-                        </div>
-                      )}
                     </div>
 
                     {/* Price and Actions */}
-                    <div className="flex items-center justify-between">
+                    <div className={`flex items-center ${
+                      viewMode === 'list' ? 'space-x-4' : 'justify-between'
+                    }`}>
                       <div className="space-y-1">
                         <div className="flex items-center space-x-2">
-                          <span className="text-2xl font-bold text-transparent bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text font-orbitron">
-                            ${product.price}
+                          <span className={`font-bold text-transparent bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text font-orbitron ${
+                            viewMode === 'list' ? 'text-xl' : 'text-2xl'
+                          }`}>
+                            Rs. {product.price}
                           </span>
                           {product.originalPrice && (
                             <span className="text-sm text-gray-500 line-through font-inter">
-                              ${product.originalPrice}
+                              Rs. {product.originalPrice}
                             </span>
                           )}
                         </div>
@@ -966,7 +759,7 @@ export default function ProductPage({ setCurrentPage, addToCart }: ProductPagePr
                         ) : (
                           <>
                             <ShoppingCart className="w-4 h-4 group-hover:animate-bounce" />
-                            <span className="text-sm font-bold">Add to Cart</span>
+                            <span className="text-sm font-bold">Add</span>
                           </>
                         )}
                       </button>
@@ -978,28 +771,159 @@ export default function ProductPage({ setCurrentPage, addToCart }: ProductPagePr
           </>
         )}
 
-        {/* Action Buttons */}
-        <div className="section-animate text-center">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            {/* <button className="px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 rounded-full text-white font-bold hover:shadow-lg transition-all duration-300 hover:scale-105 font-inter">
-              Add to Cart
-            </button>
-            <button className="px-8 py-4 border border-purple-500 text-purple-400 hover:bg-purple-500/10 rounded-full font-bold transition-all duration-300 hover:scale-105 font-inter">
-              Save for Later
-            </button> */}
-          </div>
-          
-          <div className="mt-8 text-center">
-            {/* <p className="text-gray-400 text-sm font-inter">
-              Total: <span className="text-2xl font-bold text-transparent bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text font-orbitron">
-                ${selectedAddons.reduce((total, addonId) => {
-                  const addon = addons.find(a => a.id === addonId);
-                  return total + (addon ? addon.price : 0);
-                }, 0)}
-              </span>
-            </p> */}
-          </div>
-        </div>
+        {/* Add-ons Section */}
+        {selectedType === 'addons' && (
+          <>
+            {/* Service Add-ons */}
+            <div className="section-animate mb-12">
+              <h2 className="text-2xl font-bold text-white mb-6 font-orbitron text-center">Service Add-ons</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {addons.map((addon) => (
+                  <button
+                    key={addon.id}
+                    onClick={() => toggleAddon(addon.id)}
+                    className={`p-6 rounded-2xl border transition-all duration-300 hover:scale-105 text-left ${
+                      selectedAddons.includes(addon.id)
+                        ? 'bg-gradient-to-br from-purple-500/20 to-pink-500/20 border-purple-500'
+                        : 'bg-gray-900/50 border-gray-700 hover:border-gray-500'
+                    }`}
+                  >
+                    <div className="flex items-center mb-4">
+                      <div className="text-purple-400 mr-4">{addon.icon}</div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold text-white mb-1 font-orbitron">{addon.name}</h3>
+                        <p className="text-gray-300 text-sm font-inter">{addon.description}</p>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-xl font-bold text-transparent bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text font-orbitron">
+                          +Rs.{addon.price}
+                        </span>
+                      </div>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Product Add-ons */}
+            <div className="section-animate mb-12">
+              <h2 className="text-2xl font-bold text-white mb-6 font-orbitron text-center">Product Add-ons</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {addonProducts.map((addon) => (
+                  <div
+                    key={addon.id}
+                    className="group bg-gradient-to-br from-gray-900/80 to-black/90 backdrop-blur-xl rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 overflow-hidden p-6"
+                  >
+                    {/* Addon Image */}
+                    <div className="aspect-square mb-4 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-pink-500/10 animate-pulse"></div>
+                      <ImageWithFallback
+                        src={addon.image}
+                        alt={addon.name}
+                        className="w-full h-full object-cover rounded-xl relative z-10"
+                      />
+                      
+                      {/* Tags */}
+                      <div className="absolute top-2 left-2 z-20">
+                        {addon.tags.slice(0, 2).map((tag, tagIndex) => (
+                          <span
+                            key={tagIndex}
+                            className={`inline-block px-2 py-1 text-xs rounded-full mr-1 mb-1 font-bold font-inter ${
+                              tag === 'Limited' ? 'bg-red-500 text-white animate-pulse' :
+                              tag === 'Popular' ? 'bg-gradient-to-r from-green-500 to-blue-500 text-white' :
+                              tag === 'Trending' ? 'bg-gradient-to-r from-cyan-500 to-purple-500 text-white animate-pulse' :
+                              'bg-gradient-to-r from-pink-500 to-purple-500 text-white'
+                            }`}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Wishlist Button */}
+                      <button className="absolute top-2 right-2 p-1.5 bg-black/50 hover:bg-pink-500/50 rounded-lg transition-all duration-300 opacity-0 group-hover:opacity-100 z-20">
+                        <Heart className="w-4 h-4 text-white" />
+                      </button>
+                    </div>
+
+                    {/* Addon Info */}
+                    <div className="space-y-3 mb-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs text-purple-400 uppercase tracking-wide font-inter font-bold">
+                          ADD-ON
+                        </span>
+                        <div className="flex items-center space-x-1">
+                          <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                          <span className="text-xs text-white font-inter font-bold">{addon.rating}</span>
+                          <span className="text-xs text-gray-400 font-inter">({addon.reviews})</span>
+                        </div>
+                      </div>
+                      
+                      <h4 className="text-white font-bold group-hover:text-purple-400 transition-colors font-orbitron">
+                        {addon.name}
+                      </h4>
+                      <p className="text-sm text-gray-300 font-inter">{addon.description}</p>
+                      
+                      {/* Vibes Tags */}
+                      <div className="flex flex-wrap gap-2">
+                        {addon.vibes.slice(0, 3).map((vibe, index) => (
+                          <span
+                            key={index}
+                            className={`px-2 py-1 text-xs rounded-full font-inter ${getVibeColor(vibe)}`}
+                          >
+                            {vibe}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Price and Actions */}
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-1">
+                        <div className="flex items-center space-x-2">
+                          <span className="text-2xl font-bold text-transparent bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text font-orbitron">
+                            Rs. {addon.price}
+                          </span>
+                          {addon.originalPrice && (
+                            <span className="text-sm text-gray-500 line-through font-inter">
+                              Rs. {addon.originalPrice}
+                            </span>
+                          )}
+                        </div>
+                        {addon.originalPrice && (
+                          <div className="text-xs text-green-400 font-inter font-bold">
+                            {Math.round((1 - addon.price / addon.originalPrice) * 100)}% OFF 🔥
+                          </div>
+                        )}
+                      </div>
+                      
+                      <button 
+                        onClick={() => handleAddToCart(addon)}
+                        className={`px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 flex items-center space-x-2 group font-inter ${
+                          addedToCart === addon.id 
+                            ? 'bg-green-500 text-white' 
+                            : 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 hover:from-purple-500 hover:to-pink-500'
+                        }`}
+                      >
+                        {addedToCart === addon.id ? (
+                          <>
+                            <span className="text-sm font-bold">Added!</span>
+                            <span className="text-white">✓</span>
+                          </>
+                        ) : (
+                          <>
+                            <Plus className="w-4 h-4 group-hover:animate-bounce" />
+                            <span className="text-sm font-bold">Add</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

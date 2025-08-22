@@ -10,6 +10,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 interface NavbarProps {
   cartItemCount: number;
@@ -72,9 +73,11 @@ export default function Navbar({ cartItemCount }: NavbarProps) {
           <Link
             to="/"
             ref={logoRef}
-            className="nav-item nav-item-visible flex items-center space-x-3 cursor-pointer hover:scale-110 hover:rotate-3 transition-all duration-300"
+            className="nav-item nav-item-visible flex items-center space-x-3 cursor-pointer  transition-all duration-300"
           >
-            <div className="text-3xl">心</div>
+            <div className="text-3xl">
+              <img src={logo} alt="KOKORO Logo" className="w-10 h-10" />
+              </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent font-orbitron">
                 KOKORO

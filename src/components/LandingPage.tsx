@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Star, ArrowRight, Zap, Heart, Sparkles, Target, Users, Rocket, Mail, Twitter, Github, Instagram, X, CheckCircle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import logo from '../assets/logo.png';
+
 
 export default function LandingPage() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -8,7 +11,7 @@ export default function LandingPage() {
   const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
   const [subscriptionEmail, setSubscriptionEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     // Simple entrance animations with CSS
     const heroTitle = document.querySelector('.hero-title');
@@ -76,35 +79,35 @@ export default function LandingPage() {
 
   const creators = [
     {
-      name: 'Yuki Tanaka',
+      name: 'Reedhy ',
       role: 'Founder & CEO',
       description: 'Former anime studio director turned entrepreneur. Dreams in pixels and code.',
       avatar: '👩‍💻',
-      social: { twitter: '@yukidev', github: '@yukitanaka' },
+      social: { twitter: 'none', github: 'none' },
       vibe: 'Visionary'
     },
     {
-      name: 'Alex Chen',
+      name: 'Arkasnata',
       role: 'Lead Developer',
       description: 'Full-stack wizard who makes the impossible possible. Powered by coffee and anime.',
       avatar: '🧙‍♂️',
-      social: { twitter: '@alexcodes', github: '@alexchen' },
+      social: { twitter: 'none', github: 'none' },
       vibe: 'Code Ninja'
     },
     {
-      name: 'Mika Sato',
+      name: 'Biswanath',
       role: 'Design Director',
       description: 'UX/UI designer obsessed with creating magical user experiences.',
       avatar: '🎨',
-      social: { twitter: '@mikadesigns', instagram: '@mikacreates' },
+      social: { twitter: 'none', instagram: 'none' },
       vibe: 'Creative Soul'
     },
     {
-      name: 'Ryan Kim',
+      name: 'Snehasish',
       role: 'Community Manager',
       description: 'Building bridges between creators and fans. Always online, always hyped.',
       avatar: '🎮',
-      social: { twitter: '@ryancommunity', instagram: '@ryankimgaming' },
+      social: { twitter: 'none', instagram: 'none' },
       vibe: 'Hype Master'
     }
   ];
@@ -135,11 +138,7 @@ export default function LandingPage() {
         <div className="relative z-10 text-center max-w-6xl mx-auto">
           {/* Main Title */}
           <div className="hero-title mb-6">
-            <h1 className="text-7xl md:text-9xl font-bold mb-4">
-              <span className="text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text animate-gradient">
-                心
-              </span>
-            </h1>
+            <img src={logo} alt="KOKORO Logo" className="w-50 h-50 mx-auto mb-4" />
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-2 font-orbitron">
               KOKORO
             </h2>
@@ -156,15 +155,15 @@ export default function LandingPage() {
 
           {/* CTA Buttons */}
           <div className="hero-buttons flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <button className="group px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full text-white font-medium text-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2 font-inter">
+            <button className="group px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full text-white font-medium text-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2 font-inter" onClick= {() => navigate('/products')}>
               <Sparkles className="w-5 h-5" />
               <span>Browse Collection</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="px-8 py-4 border-2 border-purple-500 rounded-full text-purple-400 font-medium text-lg hover:bg-purple-500/10 transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2 font-inter">
+            {/* <button className="px-8 py-4 border-2 border-purple-500 rounded-full text-purple-400 font-medium text-lg hover:bg-purple-500/10 transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2 font-inter">
               <Heart className="w-5 h-5" />
               <span>Wishlist</span>
-            </button>
+            </button> */}
           </div>
 
           {/* Stats */}
@@ -189,7 +188,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Featured Products */}
+      {/* Featured Products
       <section ref={featuredRef} className="py-20 px-4 relative bg-gradient-to-br from-pink-900/20 via-purple-900/20 to-cyan-900/20">
         <div className="max-w-7xl mx-auto">
           <div className="section-animate text-center mb-16">
@@ -233,7 +232,7 @@ export default function LandingPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* About KOKORO Section */}
       <section className="relative z-10 min-h-screen flex items-center bg-gradient-to-br from-cyan-900/20 via-purple-900/20 to-pink-900/20">
