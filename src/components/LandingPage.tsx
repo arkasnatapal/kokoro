@@ -81,7 +81,7 @@ export default function LandingPage() {
     {
       name: 'Reedhy ',
       role: 'Founder & CEO',
-      description: 'Former anime studio director turned entrepreneur. Dreams in pixels and code.',
+      description: 'Visionary leader on a mission to redefine recent culture. ',
       avatar: '👩‍💻',
       social: { twitter: 'none', github: 'none' },
       vibe: 'Visionary'
@@ -89,7 +89,7 @@ export default function LandingPage() {
     {
       name: 'Arkasnata',
       role: 'Lead Developer',
-      description: 'Full-stack wizard who makes the impossible possible. Powered by coffee and anime.',
+      description: 'Building the future of kokoro with cutting-edge tech.',
       avatar: '🧙‍♂️',
       social: { twitter: 'none', github: 'none' },
       vibe: 'Code Ninja'
