@@ -6,6 +6,7 @@ import LoginPage from "./components/LoginPage";
 import SignupPage from "./components/SignupPage";
 import ProductPage from "./components/ProductPage";
 import CartPage from "./components/CartPage";
+import logo from "./assets/logo.png";
 
 interface CartItem {
   id: number;
@@ -118,7 +119,7 @@ export default function App() {
       <div className="loader fixed inset-0 bg-black flex items-center justify-center z-50">
         <div className="text-center">
           <div className="text-6xl font-bold text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text mb-4 animate-pulse">
-            心
+            <img src={logo} alt="Kokoro Logo" className="w-32 h-32 mx-auto mb-4" />
           </div>
           <div className="text-2xl text-white font-light tracking-widest font-orbitron">
             KOKORO
