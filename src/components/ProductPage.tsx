@@ -158,7 +158,7 @@ export default function ProductPage({ addToCart }: ProductPageProps) {
       id: 4,
       name: 'Classic Stickers Pack',
       description: 'Over 9+ unique stickers for all your needs 🌟',
-      price: 100,
+      price: 50,
       originalPrice: null,
       category: 'tech',
       rating: 4.9,
@@ -172,8 +172,8 @@ export default function ProductPage({ addToCart }: ProductPageProps) {
       id: 5,
       name: 'Vintae Stickers Pack',
       description: 'Serving looks 24/7 no cap 💎',
-      price: 100,
-      originalPrice: 120,
+      price: 50,
+      originalPrice: 100,
       category: 'accessories',
       rating: 4.6,
       reviews: 203,
@@ -296,8 +296,8 @@ export default function ProductPage({ addToCart }: ProductPageProps) {
       id: 'gb-1',
       name: 'Anime Aesthetic Starter Pack',
       description: 'Perfect intro to anime culture ✨',
-      price: 89,
-      originalPrice: 120,
+      price: 200,
+      originalPrice: 360,
       items: ['Kawaii Stickers Pack', 'Anime Art Print', 'Chibi Keychain', 'Aesthetic Phone Case'],
       theme: selectedCategory,
       image: giftBoxImages['gb-1'],
@@ -308,8 +308,8 @@ export default function ProductPage({ addToCart }: ProductPageProps) {
       id: 'gb-2',
       name: 'Ultimate Otaku Bundle',
       description: 'For the true anime connoisseur 🔥',
-      price: 149,
-      originalPrice: 200,
+      price: 250,
+      originalPrice: 400,
       items: ['Limited Figure', 'Manga Volume', 'Themed Apparel', 'Collectible Card Set', 'Premium Poster'],
       theme: selectedCategory,
       image: giftBoxImages['gb-2'],
@@ -320,8 +320,8 @@ export default function ProductPage({ addToCart }: ProductPageProps) {
       id: 'gb-3',
       name: 'Cozy Weeb Vibes Box',
       description: 'Comfort meets anime love 💜',
-      price: 65,
-      originalPrice: 85,
+      price: 300,
+      originalPrice:400 ,
       items: ['Soft Plushie', 'Cozy Socks', 'Cute Mug', 'Mini Pillow'],
       theme: selectedCategory,
       image: giftBoxImages['gb-3'],
@@ -520,7 +520,7 @@ export default function ProductPage({ addToCart }: ProductPageProps) {
                           </span>
                           {box.originalPrice && (
                             <span className="text-sm text-gray-500 line-through font-inter">
-                              ${box.originalPrice}
+                              Rs. {box.originalPrice}
                             </span>
                           )}
                         </div>
