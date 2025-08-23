@@ -246,7 +246,7 @@ export default function LandingPage() {
               <Sparkles className="w-12 h-12 text-cyan-400 animate-pulse" />
             </div>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto font-inter leading-relaxed">
-              More than just a store - we're building the ultimate anime lifestyle brand for the next generation
+              More than just a store - we're building the ultimate lifestyle brand for the next generation
             </p>
           </div>
 
@@ -282,7 +282,7 @@ export default function LandingPage() {
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4 font-orbitron">Our Vision</h3>
                 <p className="text-gray-300 font-inter leading-relaxed">
-                  To become the global hub for anime lifestyle, where creativity meets commerce and dreams become reality. The future is bright, and it's animated.
+                  To become the global hub for an amazing lifestyle, where creativity meets commerce and dreams become reality. The future is bright, and it's animated.
                 </p>
               </div>
             </div>
@@ -291,7 +291,7 @@ export default function LandingPage() {
           <div className="section-animate text-center mt-16">
             <div className="inline-flex items-center space-x-4 bg-gradient-to-r from-pink-500/20 to-purple-500/20 backdrop-blur-xl rounded-full px-8 py-4 border border-purple-500/30">
               <Heart className="w-6 h-6 text-pink-400" />
-              <span className="text-lg font-inter text-white">Built with love for the anime community</span>
+              <span className="text-lg font-inter text-white">Built with love for the GenZ community</span>
               <Heart className="w-6 h-6 text-pink-400" />
             </div>
           </div>
@@ -310,7 +310,7 @@ export default function LandingPage() {
               <Star className="w-10 h-10 text-yellow-400 animate-pulse" />
             </div>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto font-inter">
-              The legends behind KOKORO - passionate creators building the future of anime culture
+              The legends behind KOKORO - passionate creators building the future of the TRENDY culture
             </p>
           </div>
 
@@ -425,7 +425,7 @@ export default function LandingPage() {
             </button>
 
             <p className="text-gray-400 text-sm mt-4 font-inter">
-              Join 50,000+ anime lovers getting the latest updates • No spam, just vibes
+              Join 50,000+ trend lovers getting the latest updates • No spam, just vibes
             </p>
           </div>
         </div>
@@ -443,11 +443,11 @@ export default function LandingPage() {
                   <span className="text-2xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent font-orbitron">
                     KOKORO
                   </span>
-                  <span className="text-sm text-gray-400 -mt-1 font-inter">Anime Lifestyle Store</span>
+                  <span className="text-sm text-gray-400 -mt-1 font-inter">Your daily gifting buddy</span>
                 </div>
               </div>
               <p className="text-gray-300 font-inter leading-relaxed mb-6 max-w-md">
-                Building the ultimate anime lifestyle brand for the next generation. Join our community of passionate creators and fans.
+                Building the ultimate lifestyle brand for the next generation. Join our community of passionate creators and fans.
               </p>
               <div className="flex space-x-4">
                 <button className="p-3 bg-blue-500/20 hover:bg-blue-500/40 rounded-xl transition-colors">
@@ -487,7 +487,7 @@ export default function LandingPage() {
 
           <div className="border-t border-gray-700 mt-12 pt-8 text-center">
             <p className="text-gray-400 font-inter">
-              © 2024 KOKORO. Made with ❤️ for the anime community. All rights reserved.
+              © 2024 KOKORO. Made with ❤️ for the GenZ community. All rights reserved.
             </p>
           </div>
         </div>
