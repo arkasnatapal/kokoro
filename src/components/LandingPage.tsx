@@ -79,7 +79,7 @@ export default function LandingPage() {
 
   const creators = [
     {
-      name: 'Reedhy ',
+      name: 'Reeddhy ',
       role: 'Founder & CEO',
       description: 'Visionary leader on a mission to redefine recent culture. ',
       avatar: '👩‍💻',
